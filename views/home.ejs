@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoem</title>
+</head>
+<body>
+    <h1>TotalConfirmed <%=data.TotalConfirmed%></h1>
+    <h1>TotalDeaths <%=data.TotalDeaths%></h1>
+    <h1>TotalRecovered <%=data.TotalRecovered%></h1>
+    
+    <form action="/contryresult" method="get">
+        <input type="text" name="contry">
+        <input type="date" name="from" >
+        <input type="date" name="to" >
+        <input type="submit" value="search">
+    </form>
+
+</body>
+</html>

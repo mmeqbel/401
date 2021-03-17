@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Contries</title>
+</head>
+<body>
+    <%data.forEach(x=>{%>
+        <h1>Contry : <%=x.Country%></h1>
+        <h1>Total Confirmed : <%=x.TotalConfirmed%></h1>
+        <h1>Total deaths : <%=x.TotalDeaths%></h1>
+        <h1>Total recoverd : <%=x.TotalRecovered%></h1>
+        <h1>DAte : <%=x.Date%></h1>
+
+        <form action="/contryrecord" method="post">
+        <input type="hidden" name="record" value="<%=JSON.stringify(x)%>">
+        <input type="submit" value="add to my records">
+        </form>
+
+        <br><br><br><br>
+    <%})%>
+</body>
+</html>

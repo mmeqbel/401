@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>country details</title>
+</head>
+<body>
+    
+        <h1>Contry : <%=x.country%></h1>
+        <h1>Total Confirmed : <%=x.totalConfirmed%></h1>
+        <h1>Total deaths : <%=x.TotalDeaths%></h1>
+        <h1>Total recoverd : <%=x.totalRecovered%></h1>
+        <h1>DAte : <%=x.date%></h1>
+
+        <form action="/contrydelete/<%x.id%>?_method=delete" method="post">
+        <input type="submit" value="delete">
+        </form>
+
+        <br><br><br><br>
+    
+</body>
+</html>
