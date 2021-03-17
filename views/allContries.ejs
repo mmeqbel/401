@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>All Contries</title>
 </head>
 <body>
+    <header>
+        <%- include("./partials/nav")%>
+    </header>
+    <div class="flex-container">
     <%data.forEach(x=>{%>
-        <h1>Contry : <%=x.Country%></h1>
+        <div class="flex-item">
+
+        <span> Contry : <%=x.Country%></span>
+        
         <h1>Total Confirmed : <%=x.TotalConfirmed%></h1>
         <h1>Total deaths : <%=x.TotalDeaths%></h1>
         <h1>Total recoverd : <%=x.TotalRecovered%></h1>
@@ -20,6 +28,8 @@
         </form>
 
         <br><br><br><br>
+    </div>
     <%})%>
+</div>
 </body>
 </html>

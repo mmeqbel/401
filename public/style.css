@@ -1,0 +1,18 @@
+
+span {
+    color: pink;
+}
+*{
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.flex-container{
+display: flex;
+justify-content: flex-start;
+}
+.flex-item{
+    background-color: aquamarine;
+    margin: 16px;
+    padding: 8px;
+}

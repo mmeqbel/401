@@ -15,8 +15,8 @@ app.use(methodOverride('_method'));
 app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
-const client = new pg.Client(process.env.DATABASE_URL);   // on your machine
-//const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }); // for heroku
+//const client = new pg.Client(process.env.DATABASE_URL);   // on your machine
+const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }); // for heroku
 
 //end point 
 
@@ -35,6 +35,9 @@ app.get("/myrecords",myRecordsHandler);
 
 //record details
 app.get("/contrydetails",contryDetailHandler);
+
+//delete record 
+app.delete("/contrydelete/:id",contryDeleteHandler)
 
 
 
@@ -64,6 +67,16 @@ function myRecordsHandler(req,res) {
 function contryDetailHandler(req,res) {
     //console.log("id is :",req.query)
     getDetailsPage(req,res);
+}
+function contryDeleteHandler(req,res) {
+    console.log("to delete ",req.params.id);
+    let dbQuery=`delete from contry where id =$1`;
+    let safeValues=[req.params.id];
+    client.query(dbQuery,safeValues).then(()=>{
+        console.log("success delete");
+    }).catch(error=>{
+        console.log("ann error whenm dellerting");
+    })
 }
 
 //getters
